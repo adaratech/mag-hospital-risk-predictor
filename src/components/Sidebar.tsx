@@ -51,7 +51,7 @@ export default function Sidebar({ activeSection, onSectionChange }: SidebarProps
               Hospital Risk Predictor
             </div>
             <div className="text-[10px] text-[var(--color-text-muted)] tracking-wider uppercase">
-              MAG Broker
+              MAG
             </div>
           </div>
         )}

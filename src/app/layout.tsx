@@ -3,7 +3,7 @@ import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "Hospital Risk Predictor | MAG Broker",
+  title: "Hospital Risk Predictor | MAG",
   description: "Piattaforma di analisi predittiva del rischio sanitario",
 };
 
