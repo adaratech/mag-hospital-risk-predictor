@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Dark theme (default) */
+:root,
+[data-theme="dark"] {
+  --color-brand-copper: #C4956A;
+  --color-brand-copper-light: #D4A574;
+  --color-brand-copper-dark: #A67B5B;
+  --color-brand-navy: #1a1a2e;
+  --color-brand-navy-light: #16213e;
+  --color-brand-navy-lighter: #1f2b47;
+  --color-surface: #0f1219;
+  --color-surface-sidebar: #0c0e14;
+  --color-surface-card: #151921;
+  --color-surface-hover: #1c2030;
+  --color-border: #2a2f3e;
+  --color-text-primary: #e8e8ec;
+  --color-text-secondary: #8b8fa3;
+  --color-text-muted: #5c6178;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+  --color-chart-grid: #2a2f3e;
+  --color-chart-axis: #2a2f3e;
+  --color-chart-tick: #5c6178;
+  --color-chart-label: #8b8fa3;
+  --color-tooltip-bg: #151921;
+  --color-tooltip-border: #2a2f3e;
+  --color-tooltip-shadow: rgba(0,0,0,0.4);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Light theme */
+[data-theme="light"] {
+  --color-brand-copper: #B07D52;
+  --color-brand-copper-light: #9A6A42;
+  --color-brand-copper-dark: #7D5535;
+  --color-brand-navy: #f0ede8;
+  --color-brand-navy-light: #e8e4dd;
+  --color-brand-navy-lighter: #ddd8d0;
+  --color-surface: #f5f3ef;
+  --color-surface-sidebar: #ffffff;
+  --color-surface-card: #ffffff;
+  --color-surface-hover: #f0ede8;
+  --color-border: #e0dbd3;
+  --color-text-primary: #1c1917;
+  --color-text-secondary: #57534e;
+  --color-text-muted: #a8a29e;
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+  --color-info: #2563eb;
+  --color-chart-grid: #e0dbd3;
+  --color-chart-axis: #e0dbd3;
+  --color-chart-tick: #a8a29e;
+  --color-chart-label: #57534e;
+  --color-tooltip-bg: #ffffff;
+  --color-tooltip-border: #e0dbd3;
+  --color-tooltip-shadow: rgba(0,0,0,0.1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-surface); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-muted); }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.recharts-default-tooltip {
+  background-color: var(--color-tooltip-bg) !important;
+  border: 1px solid var(--color-tooltip-border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 32px var(--color-tooltip-shadow) !important;
+}
+
+.recharts-tooltip-label {
+  color: var(--color-text-primary) !important;
+  font-weight: 600 !important;
+}
+
+.recharts-tooltip-item {
+  color: var(--color-text-secondary) !important;
 }
